@@ -27,6 +27,7 @@ app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
+// It sets the maximum request body size limit to 30 megabytes. This helps prevent any abuse or excessive payload sizes that your application might receive.
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
