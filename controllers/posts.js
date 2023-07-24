@@ -1,7 +1,7 @@
 import Post from "../models/Post.js";
 import User from "../models/User.js";
 
-///CREATE///
+/* CREATE */
 export const createPost = async (req, res) => {
   try {
     const { userId, description, picturePath } = req.body;
@@ -17,8 +17,8 @@ export const createPost = async (req, res) => {
       likes: {},
       comments: [],
     });
-    //save into database
     await newPost.save();
+
     const post = await Post.find();
     res.status(201).json(post);
   } catch (err) {
@@ -26,7 +26,7 @@ export const createPost = async (req, res) => {
   }
 };
 
-///READ///
+/* READ */
 export const getFeedPosts = async (req, res) => {
   try {
     const post = await Post.find();
@@ -36,7 +36,6 @@ export const getFeedPosts = async (req, res) => {
   }
 };
 
-//grab the userfeed post
 export const getUserPosts = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -47,7 +46,7 @@ export const getUserPosts = async (req, res) => {
   }
 };
 
-///UPDATE///
+/* UPDATE */
 //user can like post only one time
 export const likePost = async (req, res) => {
   try {
@@ -55,17 +54,19 @@ export const likePost = async (req, res) => {
     const { userId } = req.body;
     const post = await Post.findById(id);
     const isLiked = post.likes.get(userId);
+
     if (isLiked) {
       post.likes.delete(userId);
     } else {
       post.likes.set(userId, true);
     }
-    //update post after likes
+
     const updatedPost = await Post.findByIdAndUpdate(
       id,
       { likes: post.likes },
       { new: true }
     );
+
     res.status(200).json(updatedPost);
   } catch (err) {
     res.status(404).json({ message: err.message });

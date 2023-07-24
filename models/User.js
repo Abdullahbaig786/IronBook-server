@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const UserSchema = new mongoose.Schema(
   {
     firstName: {
@@ -21,7 +22,7 @@ const UserSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      require: true,
+      required: true,
       min: 5,
     },
     picturePath: {
@@ -32,11 +33,10 @@ const UserSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-
     location: String,
     occupation: String,
     viewedProfile: Number,
-    impression: Number,
+    impressions: Number,
   },
   { timestamps: true }
 );
