@@ -1,6 +1,6 @@
 # IRONBOOK
 
-Social ShareApp is a full-stack social media application that allows users to connect, share their thoughts, and interact with each other. It provides a platform for users to create posts, view profiles, and engage in a social networking environment. The app aims to provide a user-friendly interface with features like image uploading, profile customization, and responsive design.
+IRONBOOK is a full-stack social media application that allows users to connect, share their thoughts, and interact with each other. It provides a platform for users to create posts, view profiles, and engage in a social networking environment. The app aims to provide a user-friendly interface with features like image uploading, profile customization, and responsive design.
 
 Features
 User Registration and Login: Users can create accounts and securely log in to the app.
