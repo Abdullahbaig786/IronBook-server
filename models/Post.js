@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const postSchema = mongoose.Schema(
   {
@@ -10,6 +10,8 @@ const postSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    // posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
+
     lastName: {
       type: String,
       required: true,
