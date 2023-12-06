@@ -55,16 +55,32 @@ app.use("/posts", postRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
-mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 
-    /* ADD DATA ONE TIME */
-    // User.insertMany(users);
-    // Post.insertMany(posts);
-  })
-  .catch((error) => console.log(`${error} did not connect`));
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('Connected to MongoDB Atlas');
+  app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+})
+.catch((error) => {
+  console.error('Error connecting to MongoDB Atlas:', error);
+  process.exit(1);
+});
+
+
+
+// mongoose
+//   .connect(process.env.MONGO_URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => {
+//     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+
+//     /* ADD DATA ONE TIME */
+//     // User.insertMany(users);
+//     // Post.insertMany(posts);
+//   })
+//   .catch((error) => console.log(`${error} did not connect`));

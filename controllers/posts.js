@@ -36,6 +36,7 @@ export const getFeedPosts = async (req, res) => {
   }
 };
 
+// user's post
 export const getUserPosts = async (req, res) => {
   try {
     const { userId } = req.params;
