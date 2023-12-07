@@ -12,6 +12,7 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
     "multer-gridfs-storage": "^5.0.2",
+    "nodemon": "^3.0.2",
     "react-redux": "^8.1.1",
     "redux": "^4.2.1"
   },
@@ -21,7 +22,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "npm index.js"
   },
   "keywords": [],
   "author": "",
